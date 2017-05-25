@@ -1,0 +1,8 @@
+.requerido:after {
+	content: "*";
+	color: red;
+	font-size: 18px;
+	margin-right: 2px;
+    font-weight: bold !important;
+	
+}
