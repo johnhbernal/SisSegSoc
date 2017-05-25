@@ -13,6 +13,7 @@
 			</tr>
 		</thead>
 		<tbody>
+<!-- 		--------- -->
 			@foreach($usuarios as $usuario)
 			<tr>
 				<td><strong>{{$usuario->id}}</strong></td>
