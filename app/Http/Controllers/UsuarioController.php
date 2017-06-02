@@ -53,39 +53,9 @@ class UsuarioController extends Controller {
 
 	}
 	public function update(UsuarioRequest $request, $id) {
-		// $usuario = Usuario::where ( 'CONS_USUARIO', '=', $id )->first ();
-		// die(__FILE__);
+
 		$usuario = Usuario::find ( $id );
-		// echo '<pre>';
-		// print_r($usuario);
-		// echo '<pre>';
-		// die(__FILE__.' '.__LINE__);
-		
-		/*
-		 * [CONS_USUARIO] => 29
-		 * [NUM_IDENTIFICACION] => 500176732
-		 * [LOGIN_ID] => 28
-		 * [TIPO_DOCUMENTO] => CE
-		 * [PRIMER_NOMBRE] => Amya
-		 * [SEGUNDO_NOMBRE] => Juwan
-		 * [PRIMER_APELLIDO] => Schamberger
-		 * [SEGUNDO_APELLIDO] => Boyle
-		 * [FECHA_DE_NACIMIENTO] => 1931-06-21
-		 * [ESTADO] => I
-		 * [SEXO] => F
-		 * [GRUPO_SANGUINEO] => AB
-		 * [FACTOR_RH] => -
-		 * [ESTADO_CIVIL] => P
-		 * [VINCULO_LABORAL] => C
-		 * [DISCAPACIDAD] => 1
-		 * [TIPO_DISCAPACIDAD] => F
-		 * [CONDICION_DISCAPACIDAD] => T
-		 * [ETNIA] => 01
-		 * [created_by] => admin
-		 * [deleted_at] =>
-		 * [created_at] => 2017-05-18 09:23:51
-		 * [updated_at] => 2017-05-18 09:23:51
-		 */
+
 		$usuario->NUM_IDENTIFICACION = $request->NUM_IDENTIFICACION;
 		$usuario->TIPO_DOCUMENTO = $request->TIPO_DOCUMENTO;
 		$usuario->PRIMER_NOMBRE = $request->PRIMER_NOMBRE;
@@ -107,10 +77,7 @@ class UsuarioController extends Controller {
 		$usuario->save ();
 		
 		return redirect ()->route ( 'usuarios.index' )->with ( 'info', 'El usuario fue actualizado' );
-		
-		// Usuario::where ( 'CONS_USUARIO', '=', $id )->first ();
-		// return 'Producto actualizado';
-		// return back ()->with ( 'info', 'usuario actualizado'.$id);
+
 	}
 	public function edit($id) {
 		// $usuario = Usuario::where ( 'CONS_USUARIO', '=', $id )->first ();

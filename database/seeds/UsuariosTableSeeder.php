@@ -14,7 +14,7 @@ class UsuariosTableSeeder extends Seeder
     {
     	Usuario::create ( [
     			'NUM_IDENTIFICACION' => '94061212',
-    			'LOGIN_ID' => 1,
+    			'LOGIN_ID' => 99999999,
     			'TIPO_DOCUMENTO' => 'CC',
     			'PRIMER_NOMBRE' => 'John',
     			'SEGUNDO_NOMBRE' => 'Hawer',

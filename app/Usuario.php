@@ -12,7 +12,7 @@ class Usuario extends Model {
 // 			'CONS_USUARIO',
 // 			'id',
 			'NUM_IDENTIFICACION',
-			'LOGIN_ID',
+// 			'LOGIN_ID',
 			'TIPO_DOCUMENTO',
 			'PRIMER_NOMBRE',
 			'PRIMER_APELLIDO',

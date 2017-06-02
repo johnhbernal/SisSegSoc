@@ -1,7 +1,0 @@
-eclipse.preferences.version=1
-encoding//app/Http/Requests/UsuarioRequest.php=UTF-8
-encoding//app/Usuario.php=Cp1252
-encoding//database/migrations/2017_04_29_122523_create_usuarios_table.php=UTF-8
-encoding//public/js/usuForm.js=UTF-8
-encoding//resources/lang/es/validation.php=UTF-8
-encoding//resources/views/usuarios/fragment/form.blade.php=UTF-8
