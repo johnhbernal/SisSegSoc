@@ -8,17 +8,16 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>{{ config('app.name', 'Laravel') }}</title>
+<title>{{ config('app.name', 'SisSegSoc') }}</title>
 
-<!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/jquery-ui.min.css') }}" rel="stylesheet">
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+
 
 <!-- Scripts -->
-<script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-    </script>
 </head>
 <body>
 	<div id="app">
@@ -36,9 +35,35 @@
 
 					<!-- Branding Image -->
 					<a class="navbar-brand" href="{{ url('/') }}"> {{
-						config('app.name', 'Laravel') }} </a>
+						config('app.name', 'SisSegSoc') }} </a>
 				</div>
-
+				<ul class="nav navbar-nav navbar-left">
+					@if (Auth::guard('web')->check())
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false"> <i
+							class="pe-7s-user"></i> <strong>Opciones de usuario</strong><span
+							class="caret"></span>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+						</ul></li> @endif @if (Auth::guard('admin')->check())
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false"> <i
+							class="pe-7s-user"></i> <strong>Opciones de Administrador</strong><span
+							class="caret"></span>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+						</ul></li> @endif
+				</ul>
 				<div class="collapse navbar-collapse" id="app-navbar-collapse">
 					<!-- Left Side Of Navbar -->
 					<ul class="nav navbar-nav">&nbsp;
@@ -47,19 +72,25 @@
 					<!-- Right Side Of Navbar -->
 					<ul class="nav navbar-nav navbar-right">
 						<!-- Authentication Links -->
+
 						@if (Auth::guest())
 						<li><a href="{{ route('login') }}">Login</a></li>
 						<li><a href="{{ route('register') }}">Register</a></li> @else
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-expanded="false"> {{
-								Auth::user()->name }} <span class="caret"></span>
-						</a>
+							data-toggle="dropdown" role="button" aria-expanded="false"><span
+								class="glyphicon glyphicon-user"></span> {{ Auth::user()->name
+								}} <span class="caret"></span> </a>
+
+
+
+
 
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="{{ route('logout') }}"
 									onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-										Logout </a>
+										<span class="glyphicon glyphicon-off"></span> Logout
+								</a>
 
 									<form id="logout-form" action="{{ route('logout') }}"
 										method="POST" style="display: none;">{{ csrf_field() }}</form>
@@ -73,11 +104,5 @@
 		@yield('content')
 	</div>
 
-	@yield('script')
-	<!-- Scripts -->
-	<script src="{{ asset('js/app.js') }}"></script>
-	<!--     <script src="{{ asset('js/script.js') }}"></script> -->
-	@yield('footer')
-	<footer class="row"> @extends('templates.login.footerLogin') </footer>
 </body>
 </html>

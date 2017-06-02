@@ -38,7 +38,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -50,8 +50,7 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
-
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost/multiauth/public/'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,8 +63,7 @@ return [
     |
     */
 
-//     'timezone' => 'UTC',
-    'timezone' => 'America/Bogota',
+	'timezone' => 'America/Bogota',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +76,6 @@ return [
     |
     */
 
-//     'locale' => 'en',
     'locale' => 'es',
 
     /*
@@ -179,7 +176,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     	Collective\Html\HtmlServiceProvider::class,
-  		crocodicstudio\crudbooster\CRUDBoosterServiceProvider::class,
 
     ],
 

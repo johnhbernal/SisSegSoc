@@ -16,14 +16,14 @@ class CreateUsuariosTable extends Migration {
 			$table->integer ( 'LOGIN_ID' )->unsigned ()->unique ()->nullable ();
 			$table->foreign ( 'LOGIN_ID' )->references ( 'id' )->on ( 'users' );
 			$table->enum ( 'TIPO_DOCUMENTO', array (
-					'SC', // El Salvoconducto de Permanencia, es el documento de carácter temporal expedido por la Unidad Administrativa Especial de Migración Colombia.
-					'CD', // El Carné Diplomático, es el documento que identifica a extranjeros que cumplen funciones en las embajadas, legaciones,
-					'PA', // El Pasaporte, es el documento de identificación del extranjero que no se encuentra obligado a tramitar una cédula de extranjería.
-					'CE', // La Cédula de Extranjería, es el documento de identificación expedido por Migración Colombia, que se otorga a los extranjeros titulares de una visa superior a 3 meses y a sus beneficiarios, con base en el Registro de Extranjeros. La Vigencia de la Cédula de Extranjería será por un término igual al de la vigencia de la visa del titular.
-					'CC', // La Cédula de Ciudadanía, es el documento expedido por la Registraduría Nacional del Estado Civil, con el que se identifican las personas al cumplir 18 años de edad.
-					'TI', // La Tarjeta de Identidad, es un documento expedido por la Registraduría Nacional del Estado Civil con el que se identifican los menores entre 7 y 17 años. Debe ser reemplazada por la cédula de ciudadanía.
-					'RC', // El Registro Civil de Nacimiento, es el documento expedido por una notaría pública con el que se identifican los menores de 7 años. Debe ser reemplazado por la tarjeta de identidad.
-					'CN'  // El Certificado de Nacido Vivo, es el documento expedido por la Institución Prestadora de Servicios (IPS) donde nació el neonato. Solo tiene validez para realizar la afiliación, y máximo hasta el tercer mes de vida. Debe ser reemplazado por el registro civil.
+					'SC', // El Salvoconducto de Permanencia, es el documento de carï¿½cter temporal expedido por la Unidad Administrativa Especial de Migraciï¿½n Colombia.
+					'CD', // El Carnï¿½ Diplomï¿½tico, es el documento que identifica a extranjeros que cumplen funciones en las embajadas, legaciones,
+					'PA', // El Pasaporte, es el documento de identificaciï¿½n del extranjero que no se encuentra obligado a tramitar una cï¿½dula de extranjerï¿½a.
+					'CE', // La Cï¿½dula de Extranjerï¿½a, es el documento de identificaciï¿½n expedido por Migraciï¿½n Colombia, que se otorga a los extranjeros titulares de una visa superior a 3 meses y a sus beneficiarios, con base en el Registro de Extranjeros. La Vigencia de la Cï¿½dula de Extranjerï¿½a serï¿½ por un tï¿½rmino igual al de la vigencia de la visa del titular.
+					'CC', // La Cï¿½dula de Ciudadanï¿½a, es el documento expedido por la Registradurï¿½a Nacional del Estado Civil, con el que se identifican las personas al cumplir 18 aï¿½os de edad.
+					'TI', // La Tarjeta de Identidad, es un documento expedido por la Registradurï¿½a Nacional del Estado Civil con el que se identifican los menores entre 7 y 17 aï¿½os. Debe ser reemplazada por la cï¿½dula de ciudadanï¿½a.
+					'RC', // El Registro Civil de Nacimiento, es el documento expedido por una notarï¿½a pï¿½blica con el que se identifican los menores de 7 aï¿½os. Debe ser reemplazado por la tarjeta de identidad.
+					'CN'  // El Certificado de Nacido Vivo, es el documento expedido por la Instituciï¿½n Prestadora de Servicios (IPS) donde naciï¿½ el neonato. Solo tiene validez para realizar la afiliaciï¿½n, y mï¿½ximo hasta el tercer mes de vida. Debe ser reemplazado por el registro civil.
 						     // ) )->default ( 'CC' );
 			) );
 			// $table->string('TIPO_DOCUMENTO');
@@ -66,26 +66,26 @@ class CreateUsuariosTable extends Migration {
 					'C', // Afiliado/a o Cotizante
 					'B'  // Beneficiario/a
 			) );
-			//discapacidad. Este espacio debe diligenciarse solo en el caso en que el cotizante o cabeza de familia tenga una discapacidad reconocida y calificada médicamente.
+			//discapacidad. Este espacio debe diligenciarse solo en el caso en que el cotizante o cabeza de familia tenga una discapacidad reconocida y calificada mï¿½dicamente.
 			$table->boolean('DISCAPACIDAD')->default(false);
 			//Tipo de discapacidad.
 			$table->enum ( 'TIPO_DISCAPACIDAD', array (
-					'F', // Física
+					'F', // Fï¿½sica
 					'N',  // Neuro-sensorial
 					'M'//Mental
 			) )->nullable ();
-			//Condición de discapacidad
+			//Condiciï¿½n de discapacidad
 			$table->enum ( 'CONDICION_DISCAPACIDAD', array (
 					'T', // Temporal
 					'P'  // Permanente
 			) )->nullable ();
 			$table->enum ( 'ETNIA', array (
-					'01', // Indígena
+					'01', // Indï¿½gena
 					'02', // Rrom (gitano).
-					'03', // Raizal (San Andrés y Providencia).
+					'03', // Raizal (San Andrï¿½s y Providencia).
 					'04', // Palenquero (San Basilio de Palenque).
 					'05'  // Negro(a), afrocolombiano(a).
-			) )->nullable ();
+			) )->nullable ()->default(null);
 			$table->string ( 'created_by' )->default ( 'admin' );
 			$table->softDeletes ();
 			$table->timestamps ();

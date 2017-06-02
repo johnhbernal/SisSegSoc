@@ -110,13 +110,5 @@ code {
 	margin-left: auto;
 	margin-right: auto;
 }
-img.center {
-    display: block;
-    margin: 0 auto;
-}
-#logoImagen{
-	 width: 100%; 
-	 height: 100%;
-/* 	 background-image:url(“{{ asset('img/imgLogin/Boton-Ejemplo.jpg') }}”); */
-}
+
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,21 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-    	$products =\App\Product::paginate();
-        return view('home',compact('products'));
-    }
-    public function destroyProduct(Request $request,$id){
-    	if ($request->ajax()) {
-    		$product =\App\Product::find($id);
-    		$product->delete();
-    		$productsTotal = \App\Product::all()->count();
-    		
-    		return response()->json(
-    				['total'=>$productsTotal,
-    					'message'=>$product->name.', fue eliminado correctamente.'
-    				]
-    				);
-    	}
-    	
+        return view('home');
     }
 }
